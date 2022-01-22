@@ -1,7 +1,7 @@
 const dino = document.getElementById('dino');
 const cactus = document.getElementById('cactus');
 let lastLeft = 1;
-
+//day la doan lay tu local may
 const highScore = document.getElementById('high_score');
 let hpoint = parseInt(window.localStorage.getItem('highScore') || '0');
 console.log(hpoint);
@@ -28,7 +28,8 @@ let isAlive = setInterval(function () {
   let cactusLeft = parseInt(window.getComputedStyle(cactus).getPropertyValue('left'));
 
   //chech diem
-  // cactusLeft toa do hien tai cua cay 
+  // cactusLeft toa do hien tai cua cay
+  //doan nay se check neu lan dau tien toa do am thi +1 diem
   if (cactusLeft * lastLeft < 0) {
     point += 1;
     document.getElementById('h2d').innerHTML = `point = ${point}`;
@@ -37,7 +38,9 @@ let isAlive = setInterval(function () {
   if (cactusLeft < 50 && cactusLeft > 0 && dinoTop >= 140) {
     // detect collision
     // collision
+    //doan nay check xem diem cao nhat chua
     if (point > hpoint) {
+      //day la doan luu vao local may
       window.localStorage.setItem('highScore', point);
       hpoint = point;
       highScore.innerHTML = `High Score: ${hpoint}`;
